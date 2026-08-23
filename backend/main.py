@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from sqlalchemy import text
-from database import engine
+from database import engine, Base
+from models.user import User
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="VillageVoice Justice AI - Backend")
 
